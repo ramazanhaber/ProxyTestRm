@@ -14,18 +14,7 @@ namespace ProxyTestRm
         public HttpClient client;
         public string username = "";
         public string password = "";
-        public Api2(string username, string password)
-        {
-            this.username = username;
-            this.password = password;
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            CookieContainer cookies = new CookieContainer();
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.CookieContainer = cookies;
-            client = new HttpClient(handler);
-            client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.29.2");
-        }
+       
         public Api2(string ip,string port,string username,string sifre)
         {
             ServicePointManager.Expect100Continue = true;
@@ -54,6 +43,32 @@ namespace ProxyTestRm
             client = new HttpClient(handler: httpClientHandler, disposeHandler: true);
             client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.29.2");
         }
+        public Api2(string ip, string port)
+        {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            CookieContainer cookies = new CookieContainer();
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.CookieContainer = cookies;
+            string proxyHost = ip, proxyPort = port;
+            var proxy = new WebProxy
+            {
+                Address = new Uri($"http://{proxyHost}:{proxyPort}"),
+                BypassProxyOnLocal = false,
+                UseDefaultCredentials = false,
+                // *** These creds are given to the proxy server, not the web server ***
+            };
+            var httpClientHandler = new HttpClientHandler
+            {
+                Proxy = proxy,
+                //UseCookies = true,
+                //CookieContainer = cookies,
+                //UseDefaultCredentials=true,
+            };
+            client = new HttpClient(handler: httpClientHandler, disposeHandler: true);
+            client.DefaultRequestHeaders.Add("User-Agent", "PostmanRuntime/7.29.2");
+        }
+
         public Api2()
         {
             ServicePointManager.Expect100Continue = true;

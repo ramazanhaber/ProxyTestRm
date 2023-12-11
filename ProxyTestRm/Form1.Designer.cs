@@ -43,6 +43,7 @@
             this.richEditControl1 = new DevExpress.XtraRichEdit.RichEditControl();
             this.btnCalistir = new DevExpress.XtraEditors.SimpleButton();
             this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
+            this.btnToptanTest = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // label1
@@ -144,7 +145,7 @@
             // 
             // btnCalistir
             // 
-            this.btnCalistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnCalistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCalistir.ImageOptions.Image")));
             this.btnCalistir.Location = new System.Drawing.Point(348, 75);
             this.btnCalistir.Name = "btnCalistir";
             this.btnCalistir.Size = new System.Drawing.Size(155, 32);
@@ -162,11 +163,21 @@
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
+            // btnToptanTest
+            // 
+            this.btnToptanTest.Location = new System.Drawing.Point(746, 26);
+            this.btnToptanTest.Name = "btnToptanTest";
+            this.btnToptanTest.Size = new System.Drawing.Size(75, 23);
+            this.btnToptanTest.TabIndex = 20;
+            this.btnToptanTest.Text = "Toptan Test";
+            this.btnToptanTest.Click += new System.EventHandler(this.btnToptanTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 623);
+            this.Controls.Add(this.btnToptanTest);
             this.Controls.Add(this.btnTemizle);
             this.Controls.Add(this.btnCalistir);
             this.Controls.Add(this.richEditControl1);
@@ -184,6 +195,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PROXY TEST v0.1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,6 +217,7 @@
         private DevExpress.XtraRichEdit.RichEditControl richEditControl1;
         private DevExpress.XtraEditors.SimpleButton btnCalistir;
         private DevExpress.XtraEditors.SimpleButton btnTemizle;
+        private DevExpress.XtraEditors.SimpleButton btnToptanTest;
     }
 }
 
