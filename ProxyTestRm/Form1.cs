@@ -1,16 +1,7 @@
 ﻿using DevExpress.XtraSplashScreen;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.Pdf.Native.BouncyCastle.Utilities.Net;
 
 namespace ProxyTestRm
 {
@@ -38,8 +29,18 @@ namespace ProxyTestRm
             try
             {
                 loadingAc();
-                Api2 api2 = new Api2(txtIp.Text, txtPort.Text, txtUsername.Text, txtSifre.Text);
-                richEditControl1.HtmlText = api2.requestGet(txtLink.Text);
+
+                if (txtUsername.Text == "")
+                {
+                    Api2 api2 = new Api2(txtIp.Text, txtPort.Text);
+                    richEditControl1.HtmlText = api2.requestGet(txtLink.Text);
+                }
+                else
+                {
+                    Api2 api2 = new Api2(txtIp.Text, txtPort.Text, txtUsername.Text, txtSifre.Text);
+                    richEditControl1.HtmlText = api2.requestGet(txtLink.Text);
+                }
+
             }
             catch (Exception ex)
             {
@@ -64,7 +65,7 @@ namespace ProxyTestRm
 
             TestProxy(txtIp.Text, Convert.ToInt32(txtPort.Text));
         }
-         void TestProxy(string ipAddress, int port)
+        void TestProxy(string ipAddress, int port)
         {
             try
             {
@@ -92,7 +93,7 @@ namespace ProxyTestRm
             }
             catch (Exception ex)
             {
-                richEditControl1.HtmlText = ex.Message+ "";
+                richEditControl1.HtmlText = ex.Message + "";
 
             }
 

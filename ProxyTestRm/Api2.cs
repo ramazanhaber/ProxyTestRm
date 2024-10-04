@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Net.Http;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 namespace ProxyTestRm
 {
     public class Api2
@@ -14,8 +12,8 @@ namespace ProxyTestRm
         public HttpClient client;
         public string username = "";
         public string password = "";
-       
-        public Api2(string ip,string port,string username,string sifre)
+
+        public Api2(string ip, string port, string username, string sifre)
         {
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;

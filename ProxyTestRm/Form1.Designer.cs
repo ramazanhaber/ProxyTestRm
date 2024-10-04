@@ -88,6 +88,7 @@
             this.txtIp.Name = "txtIp";
             this.txtIp.Size = new System.Drawing.Size(212, 20);
             this.txtIp.TabIndex = 8;
+            this.txtIp.Text = "103.151.177.221";
             // 
             // txtPort
             // 
@@ -95,6 +96,7 @@
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(212, 20);
             this.txtPort.TabIndex = 9;
+            this.txtPort.Text = "8080";
             // 
             // txtUsername
             // 
